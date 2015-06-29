@@ -1,0 +1,17 @@
+{
+  "name": "gabrielferreiroes-buena",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel Ferreiro",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-typescript": "^2.7.8",
+    "merge2": "^0.3.6"
+  }
+}
