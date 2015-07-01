@@ -32,6 +32,7 @@ module Client {
 			requestUrl += this.username;
 			requestUrl += '&api_key=';
 			requestUrl += this.apikey;
+			requestUrl += '&format=json';
 			
 			var xhr: XMLHttpRequest = new XMLHttpRequest();
 			xhr.onreadystatechange = (ev) => {
@@ -43,11 +44,15 @@ module Client {
 				}
 					
 			};
-			xhr.open('GET', requestUrl);
+			xhr.open('GET', requestUrl, true);
 			xhr.send(null);
 		}
 		
 		private CreatePostsElements(posts: Entities.Snipt[]) {
+			
+			var postRowContainer: HTMLDivElement = document.createElement("div");
+			postRowContainer.classList.add('row');
+			var addedPosts: number = 0;
 			
 			for (var key in posts) {
 				if (posts.hasOwnProperty(key)) {
@@ -56,7 +61,7 @@ module Client {
 					if (!element.blog_post) {
 						continue;
 					}
-					
+										
 					var container: HTMLDivElement = document.createElement("div");
 					container.classList.add("post-resume");
 					container.classList.add("col-lg-5");
@@ -72,9 +77,26 @@ module Client {
 					resume.innerHTML += '...';
 					container.appendChild(resume);
 					
-					document.querySelector(this.containerSelector).appendChild(container);
+					var linkToPost: HTMLAnchorElement = document.createElement("a");
+					linkToPost.href = element.full_absolute_url;
+					linkToPost.innerHTML = "Leer más";
+					container.appendChild(linkToPost);
+					
+					if (addedPosts < 2)	{
+						postRowContainer.appendChild(container);
+						addedPosts++;
+					} else {
+						document.querySelector(this.containerSelector).appendChild(postRowContainer);
+						postRowContainer = document.createElement("div");
+						postRowContainer.classList.add('row');
+						postRowContainer.appendChild(container);
+						addedPosts = 1;
+					}
 				}
 			}
+			
+			// Agrego el último contenedor por si quedó con menos de 2 elementos
+			document.querySelector(this.containerSelector).appendChild(postRowContainer);
 			
 		}
 		
