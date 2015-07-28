@@ -1,6 +1,7 @@
 ///<reference path="entities.ts"/>
 
 module Client {
+    
 	export interface ISniptClient {
 		GetAllPosts(): void;
 	}

@@ -1,34 +1,40 @@
 ///<reference path="sniptclient.ts" />
 ///<reference path="promise.ts" />
+
 // Necesario refacto brutal
-function buildPosts(posts) {
-    var postRowContainer = document.createElement("div");
+function buildPosts(posts: Entities.Snipt[]): void {
+    var postRowContainer: HTMLDivElement = document.createElement("div");
     postRowContainer.classList.add('row');
-    var addedPosts = 0;
+    var addedPosts: number = 0;
+
     for (var key in posts) {
         if (posts.hasOwnProperty(key)) {
             var element = posts[key];
-            var container = document.createElement("div");
+
+            var container: HTMLDivElement = document.createElement("div");
             container.classList.add("post-resume");
             container.classList.add("col-lg-5");
             container.classList.add("col-lg-offset-1");
             container.classList.add("col-sm-6");
-            var title = document.createElement("h3");
+
+            var title: HTMLHeadingElement = document.createElement("h3");
             title.innerHTML = element.title;
             container.appendChild(title);
-            var resume = document.createElement("p");
+
+            var resume: HTMLParagraphElement = document.createElement("p");
             resume.innerHTML = element.code.length < 137 ? element.code : element.code.slice(0, 137);
             resume.innerHTML += '...';
             container.appendChild(resume);
-            var linkToPost = document.createElement("a");
+
+            var linkToPost: HTMLAnchorElement = document.createElement("a");
             linkToPost.href = element.full_absolute_url;
             linkToPost.innerHTML = "Leer más";
             container.appendChild(linkToPost);
-            if (addedPosts < 2) {
+
+            if (addedPosts < 2)	{
                 postRowContainer.appendChild(container);
                 addedPosts++;
-            }
-            else {
+            } else {
                 document.querySelector('div.post-resume-container').appendChild(postRowContainer);
                 postRowContainer = document.createElement("div");
                 postRowContainer.classList.add('row');
@@ -37,12 +43,14 @@ function buildPosts(posts) {
             }
         }
     }
+
     // Agrego el último contenedor por si quedó con menos de 2 elementos
     document.querySelector('div.post-resume-container').appendChild(postRowContainer);
 }
-document.addEventListener('DOMContentLoaded', function (e) {
-    var client = new SimpleSniptClient('Garolard', '24906c869cfbb3422b111a4639707d0523389cce');
-    client.getAllBlogPostsAsync().then(function (x) { return buildPosts(x); });
-});
 
-//# sourceMappingURL=maps/main.js.map
+document.addEventListener('DOMContentLoaded', (e) => {
+	
+	var client: SimpleSniptClient = new SimpleSniptClient('Garolard', '24906c869cfbb3422b111a4639707d0523389cce');
+    client.getAllBlogPostsAsync().then((x: Entities.Snipt[]) => buildPosts(x));
+	
+});
