@@ -39,7 +39,7 @@ var SimpleSniptClient = (function () {
             }
         };
         xhr.onerror = function (ev) {
-            resultPromise.reject(new Error(ev.message));
+            resultPromise.reject(new Error("Error ejecutando la petición HTTP"));
         };
         xhr.open('GET', requestUrl, true);
         xhr.send(null);

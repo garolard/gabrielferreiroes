@@ -56,7 +56,7 @@ class SimpleSniptClient implements ISniptClient {
             }
         }
         xhr.onerror = (ev) => {
-            resultPromise.reject(new Error(ev.message));
+            resultPromise.reject(new Error("Error ejecutando la petición HTTP"));
         }
         
         xhr.open('GET', requestUrl, true);

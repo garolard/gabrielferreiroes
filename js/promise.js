@@ -2,7 +2,7 @@ var MPromise = (function () {
     function MPromise() {
         this.PENDING = 0;
         this.FULLFILLED = 1;
-        this.REJECTED = 0;
+        this.REJECTED = 2;
         this.state = this.PENDING;
         this.callbacksRejected = [];
         this.callbacksValid = [];
@@ -11,15 +11,11 @@ var MPromise = (function () {
         var p = new MPromise();
         // Chanined promises mechanisim
         if (!(onFullfilled instanceof Function)) {
-            onFullfilled = function (x) {
-                return x;
-            };
+            onFullfilled = function (x) { return x; };
         }
         this.manageCallback(p, onFullfilled, this.FULLFILLED);
         if (!(onRejected instanceof Function)) {
-            onRejected = function (r) {
-                return r;
-            };
+            onRejected = function (r) { return r; };
         }
         this.manageCallback(p, onRejected, this.REJECTED);
         return p;
@@ -70,6 +66,12 @@ var MPromise = (function () {
     };
     return MPromise;
 })();
-// var xhr = mew Client().GetPosts().then((x) => { BuildPosts(); }); 
+// Usage:
+// Return a new MPromise instance wherever your API
+// make some async work.
+// If the work finished correctly call the validate() MPromise
+// method with a value if there is one.
+// If the work fails call the reject() MPromise with an Error
+// object as parameter. 
 
 //# sourceMappingURL=maps/promise.js.map
