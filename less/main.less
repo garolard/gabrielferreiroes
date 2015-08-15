@@ -113,7 +113,7 @@ h6 {
 	background-color: @light-gray;
 }
 
-.content-section-a {
+.content-section-b {
 	padding: @vertical-spacing;
 	border-top: 1px solid @medium-gray;
 	border-bottom: 1px solid @medium-gray;
@@ -130,6 +130,28 @@ h6 {
 }
 
 // Missing Contact Banner styles
+.banner {
+	border-top: 1px solid @medium-gray;
+	border-bottom: 1px solid @medium-gray;
+	padding: 100px 0;
+	background: url(../img/banner-bkg.jpg) no-repeat center center;
+	color: @light-gray;
+	background-size: cover;
+	
+	i.contact-icon {
+		font-size: 32px;
+		
+		@media (max-width: 767px) {
+			font-size: 22px;
+		}
+	}
+}
+
+.banner-heading-spacer {
+	float: left;
+	width: 200px;
+	border-top: 3px solid @light-gray;
+}
 
 // Footer styles
 footer {
