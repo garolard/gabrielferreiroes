@@ -138,6 +138,16 @@ h6 {
 	color: @light-gray;
 	background-size: cover;
 	
+	a {
+		color: @accent-color;
+		&:hover {
+			color: lighten(@accent-color, 10%);
+		}
+		&:active {
+			color: darken(@accent-color, 10%);
+		}
+	}
+	
 	i.contact-icon {
 		font-size: 32px;
 		
