@@ -94,6 +94,12 @@ h6 {
 	&.btn-social {
 		color: @accent-color;
 		background: @semi-transparent-black;
+		&:hover {
+			background: lighten(@semi-transparent-black, 10%);
+		}
+		&:active {
+			background: darken(@semi-transparent-black, 10%);
+		}
 	}
 }
 
@@ -154,17 +160,6 @@ h6 {
 		@media (max-width: 767px) {
 			font-size: 22px;
 		}
-	}
-	
-	&::after {
-		content: '\A';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		background-color: @semi-transparent-black;
-		opacity: 0;
 	}
 }
 

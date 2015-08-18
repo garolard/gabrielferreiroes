@@ -1,5 +1,6 @@
 ///<reference path="sniptclient.ts" />
 ///<reference path="promise.ts" />
+///<reference path="declarations/i18next.d.ts" />
 
 // Necesario refacto brutal
 function buildPosts(posts: Entities.Snipt[]): void {
@@ -50,6 +51,10 @@ function buildPosts(posts: Entities.Snipt[]): void {
 
 document.addEventListener('DOMContentLoaded', (e) => {
 	
+    // i18n.init(function (err, t) {
+    //     $('.nav').i18n();
+    // });
+    
 	var client: SimpleSniptClient = new SimpleSniptClient('Garolard', '24906c869cfbb3422b111a4639707d0523389cce');
     client.getAllBlogPostsAsync().then((x: Entities.Snipt[]) => buildPosts(x));
 	
