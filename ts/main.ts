@@ -51,6 +51,10 @@ function buildPosts(posts: Entities.Snipt[]): void {
 
 document.addEventListener('DOMContentLoaded', (e) => {
 	
+    i18n.init(function (err, t) {
+        $('#about').i18n();
+    });
+        
     // i18n.init(function (err, t) {
     //     $('.nav').i18n();
     // });

@@ -81,6 +81,12 @@ h6 {
   color: #e88a25;
   background: rgba(0, 0, 0, 0.6);
 }
+.btn.btn-social:hover {
+  background: rgba(26, 26, 26, 0.6);
+}
+.btn.btn-social:active {
+  background: rgba(0, 0, 0, 0.6);
+}
 .network-name {
   text-transform: uppercase;
   font-size: 14px;
@@ -91,7 +97,7 @@ h6 {
   padding: 50px 0;
   background-color: #f8f8f8;
 }
-.content-section-a {
+.content-section-b {
   padding: 50px 0;
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
@@ -103,6 +109,36 @@ h6 {
 }
 .section-heading {
   margin-bottom: 30px;
+}
+.banner {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 100px 0;
+  background: url(../img/banner-bkg.jpg) no-repeat center center;
+  color: #f8f8f8;
+  background-size: cover;
+}
+.banner a {
+  color: #e88a25;
+}
+.banner a:hover {
+  color: #eda353;
+}
+.banner a:active {
+  color: #c57015;
+}
+.banner i.contact-icon {
+  font-size: 32px;
+}
+@media (max-width: 767px) {
+  .banner i.contact-icon {
+    font-size: 22px;
+  }
+}
+.banner-heading-spacer {
+  float: left;
+  width: 200px;
+  border-top: 3px solid #f8f8f8;
 }
 footer {
   padding: 50px 0;
