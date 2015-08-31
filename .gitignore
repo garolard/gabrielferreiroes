@@ -2,7 +2,9 @@
 .settings/*
 node_modules
 node_modules/*
-js
-js/**/*.js
-css
-css/*
+js/
+js/*.js
+js/maps/
+js/maps/*.js
+css/
+css/*.css
