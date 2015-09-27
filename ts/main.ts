@@ -1,4 +1,5 @@
 ///<reference path="sniptclient.ts" />
+///<reference path="credentials.ts" />
 ///<reference path="promise.ts" />
 ///<reference path="declarations/i18next.d.ts" />
 
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     //     $('.nav').i18n();
     // });
     
-	var client: SimpleSniptClient = new SimpleSniptClient('Garolard', '24906c869cfbb3422b111a4639707d0523389cce');
+	var client: SimpleSniptClient = new SimpleSniptClient(Credentials.ApiUser(), Credentials.ApiKey());
     client.getAllBlogPostsAsync().then((x: Entities.Snipt[]) => buildPosts(x));
 	
 });
