@@ -9,6 +9,7 @@ js/maps/*.js
 css/
 css/*.css
 dist/*
+font-awesome/*
 
 # Specific files
 ts/credentials.ts
