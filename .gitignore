@@ -8,6 +8,7 @@ js/maps/
 js/maps/*.js
 css/
 css/*.css
+dist/*
 
 # Specific files
 ts/credentials.ts
