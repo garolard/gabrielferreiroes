@@ -5,7 +5,7 @@
 
 // Sources: https://github.com/jamuhl/i18next/
 
-/// <reference path="../jquery/jquery.d.ts" />
+/// <reference path="./jquery.d.ts" />
 
 interface IResourceStore {
     [language: string]: IResourceStoreLanguage;

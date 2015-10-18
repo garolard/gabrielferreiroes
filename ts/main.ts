@@ -1,6 +1,7 @@
 ///<reference path="sniptclient.ts" />
 ///<reference path="credentials.ts" />
 ///<reference path="promise.ts" />
+///<reference path="declarations/jquery.d.ts" />
 ///<reference path="declarations/i18next.d.ts" />
 
 // Necesario refacto brutal
@@ -50,10 +51,15 @@ function buildPosts(posts: Entities.Snipt[]): void {
     document.querySelector('div.post-resume-container').appendChild(postRowContainer);
 }
 
+// Work-around
+interface Navigator {
+    globalization: any;
+}
+
 document.addEventListener('DOMContentLoaded', (e) => {
 	
-    var lang    = "",
-        locale  = "en";  // default
+    var lang:string[]   = [],
+        locale          = "en";  // default
 
     // get the user's locale - mobile or web
     if (typeof navigator.globalization !== 'undefined') {
