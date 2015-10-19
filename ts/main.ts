@@ -54,6 +54,7 @@ function buildPosts(posts: Entities.Snipt[]): void {
 // Work-around
 interface Navigator {
     globalization: any;
+    interception: number;
 }
 
 document.addEventListener('DOMContentLoaded', (e) => {

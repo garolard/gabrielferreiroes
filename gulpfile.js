@@ -8,6 +8,7 @@ var minifycss = require('gulp-minify-css');
 var notify = require('gulp-notify');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var del = require('del');
 
 gulp.task('less', function() {
 	return gulp.src(['./less/**/*.less'])
@@ -38,9 +39,25 @@ gulp.task('typescript', function(){
 		.pipe(notify({message : 'TypeScript compiled and minified'}));
 });
 
+gulp.task('clean', function(cb) {
+	return del(['dist/js', 'dist/css', 'dist/index.html'], cb)
+});
+
+
+gulp.task('bootstrap', function() {
+	return gulp.src('./css/bootstrap.min.css')
+		.pipe(gulp.dest('./dist/css'))
+});
+
 gulp.task('html', function() {
 	return gulp.src('./index.html')
 		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', ['less', 'typescript', 'html']);
+gulp.task('build', ['clean'], function() {
+	gulp.start('less', 'typescript');
+});
+
+gulp.task('default', ['build'], function() {
+	gulp.start('bootstrap', 'html');
+});
